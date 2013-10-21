@@ -5,12 +5,6 @@
    <title>
 Administración de Sistemas Informáticos 2013-2014
    </title>
-   <author>
-		<personname>
-			<firstname>Sergio David</firstname>
-			<surname>Pérez Acosta</surname>
-		</personname>
-   </author>
 <author>
 		<personname>
 			<firstname>Aitor</firstname>
@@ -19,7 +13,7 @@ Administración de Sistemas Informáticos 2013-2014
    </author>
    
 	<legalnotice>
-          <para>Este documento está construcción. Tiene fallos que se van mejorando,
+          <para>Este documento está en construcción. Tiene fallos que se van mejorando,
           y puede no estar actualizado. Si tienes alguna propuesta al respecto me
           la puedes hacer llegar, y si quieres colaborar en su desarrollo, estás
           invitado a participar.</para>
