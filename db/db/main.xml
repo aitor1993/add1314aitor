@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="es">
+	
+<info>
+   <title>
+Administración de Sistemas Informáticos 2013-2014
+   </title>
+   <author>
+		<personname>
+			<firstname>Sergio David</firstname>
+			<surname>Pérez Acosta</surname>
+		</personname>
+   </author>
+<author>
+		<personname>
+			<firstname>Aitor</firstname>
+			<surname>Oms Pérez</surname>
+		</personname>
+   </author>
+   
+	<legalnotice>
+          <para>Este documento está construcción. Tiene fallos que se van mejorando,
+          y puede no estar actualizado. Si tienes alguna propuesta al respecto me
+          la puedes hacer llegar, y si quieres colaborar en su desarrollo, estás
+          invitado a participar.</para>
+    </legalnotice>
+	<pubdate><?dbtimestamp?></pubdate>
+</info>
+
+
+<xi:include href="files/activity1.xml" />
+<xi:include href="files/activity2.xml" />
+
+</book>
+

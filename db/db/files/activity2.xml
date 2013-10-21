@@ -1,0 +1,69 @@
+<chapter>
+	<title>Clientes ligeros con LTSP</title>
+	<para>Lo primero que hice fue leer toda la documentación acerca de LTSP para instalar el servidor en Xubuntu y configurarlo con todo sus parámetros.
+Aparte de leerlo al mismo tiempo iba haciéndolo en el propio Sistema Operativo. 
+ </para>
+	
+      <section>
+	<title>Preparar la MV Server</title>
+	<para>Para preparar el servidor de Clientes Ligeros lo primero que hicimos fue añadir un nuevo usuario
+con nuestro nombre en minúsculas y de contraseña nuestro DNI con la letra en minúscula.</para>
+
+
+<para>Añadiendo nuevo usuario con nuestro nombre</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/LTSP.PNG" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+	<para>Una vez que hemos creado nuestro usuario con nuestro nombre y su determinada contraseña lo que debemos de hacer
+es crear otros usuarios locales para que el cliente ligero a través de nuestra red se pueda conectar con un usuario determinado
+de nuestra máquina Servidor.
+ </para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/añadiendo nuevos usuarios.PNG" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Una vez creados todos los usuarios necesarios en nuestra máquina Servidor de Clientes Ligeros ya podemos instalar el Servicio que va dar 
+respuesta a la petición de los clientes ligeros de conectarse a través de nuestra máquina servidor </para>
+<para>Ese comando para instalar el servidor LTSP es:</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/se instala el servicio.PNG" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Una vez que lo tengamos instalado en nuestro servidor falta instalar la imagen que será facilitada al cliente para que se pueda conectar por la red
+configurando las redes en sí, en donde el servidor tendrá ip estática, y también configurando unos pequeños archivos de configuración
+del servidor LTSP.</para>
+
+       </section>
+<section>
+<title>Preparar la MV Cliente</title>
+<para>Para preparar la máquina virtual cliente debemos de crearla primeramente pero sin asignarle ningún disco duro ni CD-ROM para que arranque
+desde el mismo. Pero lo dejaremos con disquete. También tenemos que configurar el orden de arranque para que arranque la red y si no encuentra la red
+le indicaremos que arranque desde un disquete.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/disco duro.PNG" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Al crear la máquina sin un disco duro nos mostrará un mensaje que nos dirá que sin disco duro lo único con lo que puede 
+arrancar es con la red</para>
+<para>Una vez configurado todos esos parametros debemos de darle importancia al orden de arranque en donde solo activaremos el disquete y la red.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/orden de arranque.PNG" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Finalmente y para acabar el cliente ligero ya estaría listo para arrancar por la red del Servidor de Clientes Ligeros
+</para>
+</section>
+</chapter>
+
+	

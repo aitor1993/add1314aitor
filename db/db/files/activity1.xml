@@ -1,0 +1,114 @@
+<chapter>
+	<title>Acceso Remoto</title>
+	<para>Lo primero que hicimos fue leer toda la documentación acerca de conexiones con escritorio remoto tanto en Debian como en Windows. Por una parte, mi compañero de grupo
+hizo la parte de Windows mientras que por otro lado yo hice la parte que corresponde con el Debian.
+ </para>
+	
+      <section>
+	<title>VNC</title>
+	<para>Conexión desde Windows a Linux</para>
+
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/DEWINDOWSALINUX.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <para>Conexión a Windows desde Windows </para>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/VNC-CLIENTE-WINDOWS.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <para>Conexión a Debian desde Debian </para>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/VNC Debian.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        
+          <para>Conexión a Windows desde Debian </para>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/conexion vnc debian windows.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+	
+	
+	</section>
+	 <section>
+	<title>Escritorio remoto</title>
+	<para>Para acceder desde cliente Windows 7 a Windows Server 2008 no hizo falta la descarga de ningún software ya que viene preinstalado. Lo único que tuvimos que hacer fue configurar el servidor para que permitiese el acceso remoto desde cualquier equipo aún teniendo un sistema operativo diferente.
+	Para ello nos dirigimos en el servidor a la siguiente ruta( Panel de control->Sistema-> Configuración de acceso remoto) y en la pestaña acceso remoto seleccionamos la opción "Permitir las conexiones desde equipos que ejecuten cualquier versión de escritorio remoto.
+	Luego simplemente para conectarnos hacemos click en inicio desde la máquina Windows 7 buscamos acceso remoto y ponemos la ip del servidor Windows 2008.</para>
+	 
+        <para>Conexión a Windows 2008 desde Windows 7 </para>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/DEWIN7AWIN2k8.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <para>Para conectarnos desde Debian a Windows 2008 hizo falta la instalación en Debian de un paquete especial para interpretar el protocolo RDP usado por Windows. En Debian instalamos el siguiente paquete xtightvncviewer para la conexión de acceso remoto. 
+        Después de esto instalamos el paquete que permite el protocolo RDP de Windows (xrdp)</para>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/1º.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+	</section>
+	<section>
+	<title>Servidor de terminales</title>
+	<para>Para instalar Terminal Server, vamos a Administrador de Servidor->Funciones->Agregar Función->Terminal Server. Luego nos conectamos por Escritorio Remoto desde el equipo cliente al servidor, ya dentro de este último desde acceso remoto vamos a administrador de Terminal Services y comprobamos que el usuario esté conectado a través de dicho servicio.</para>
+	<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/sesionAITOR-PC.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <para>Probamos desde el acceso remoto una aplicación del servidor y comprobamos que funciona a través del servicio de Terminal Services. En este caso, ejecutamos Paint</para>
+	<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/proceso-mspaint.exe.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/PaintTERMINAL.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+	</section>
+	<section>
+	<title>RemoteApp</title>
+	<para>El RemoteApp no lo instalamos ya que viene preinstalado. En el Servidor Windows 2008 agregamos programas en este caso por ejemplo la calculadora. Creamos un archivo rdp como programa predeterminado la calculadora y con la ip del servidor del Windows 2008. Ese archivo lo exportamos al cliente y lo ejecutamos.</para>
+	<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/2.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/remoteappfuncionando.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+        <para>Por último observamos que la aplicación funciona correctamente</para>
+        <mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/calculadorausandose.png" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+	</section>
+</chapter>
+
+
+
+	
