@@ -1,0 +1,138 @@
+<chapter>
+	<title>Acceso remoto SSH (Servidor Xubuntu)</title>
+	<para>Para esta práctica usaremos como servidor un Xubuntu, como clientes, un Windows 7 y un Debian 7</para>
+	
+      <section>
+	<title>Instalación básica</title>
+	<para>Lo primero que debemos hacer es instalar el Servidor SSH para ello hacemos apt-get install openssh-server en nuestro servidor Xubuntu. </para>
+
+
+<para>Comprobamos el funcionamiento de la conexión SSH desde nuestro cliente
+ Debian para ello escribimos en consola: ssh remoteuser1@ipdelservidor  </para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/remoteuser2.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Windows no tiene el paquete SSH instalado, para ello nos descargamos PUTTY, 
+se trata de una aplicación que nos permite la conexión mediante este protocolo : 
+http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html </para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/PuTTY.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Abrimos PuTTy, luego en Host Name escribimos la Ip de nuestro 
+servidor SSH y le damos click a la opción Open para conectarnos</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/remoteuser1.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+        </mediaobject>
+        
+       </section>
+<section>
+<title>Personalización del prompt Bash</title>
+<para>Para la configuración del Prompt de cada usuario modificamos el archivo oculto .bashrc de el usuario que queramos modificar.
+Este archivo se encuentra en el home de cada usuario y solamente hay que modificar la linea export PS1='\[\e[1;31m\..... donde 1;31m es el parámetro del color</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/bashrc.png" format="PNG" scale="60"/>
+            </imageobject>
+           
+        </mediaobject>
+
+<para>Tras configurar el fichero .bashrc de cada usuario
+nos conectamos mediando SSH al servidor
+y comprobamos los cambios producidos (Cliente Debian)</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/Bashpersonalizado.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>(Cliente Windows)</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/remoteuser2configurado.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+</mediaobject>
+</section>
+<section>
+<title>Autenticación mediante claves públicas</title>
+<para>Lo primero que debemos hacer es generar una nueva clave pública en el cliente para
+ello hacemos ssh-keygen en la consola.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/autenticacion1.png" format="PNG" scale="80"/>
+            </imageobject>
+           
+        </mediaobject>
+
+<para>Tras haber generado la nueva clave pública se la enviamos al servidor y la
+introducimos en el fichero que se encuentra en /.ssh/authorized_keys del usuario que
+queramos que funcione mediante la autenticación de claves</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/enviandoclaveremoteuser1.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Después de haber hecho todo esto solo nos falta comprobar que
+funciona correctamente, para ello nos conectamos de forma normal a nuestro
+servidor SSH</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/autenticacion.png" format="PNG" scale="70"/>
+            </imageobject>
+           
+</mediaobject>
+<para>Como se puede apreciar en la imágen no ha sido necesario introducir
+la contraseña del usuario, es decir, se ha conectado de forma automática</para>
+</section>
+<section>
+<title>Uso de SSH como túnel para X</title>
+<para>Para la utilización de SSH como túnel X configuraremos en el servidor
+el fichero /etc/ssh/sshd_config y le añadiremos la siguiente linea: X11Forwarding yes</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/tunelx1.png" format="PNG" scale="55"/>
+            </imageobject>
+           
+        </mediaobject>
+
+<para>Tras haber configurado ese archivo, nos conectamos desde el cliente a el
+servidor a través de tunel X de la siguiente forma: ssh -X remoteuser1@ipservidor;
+Y luego simplemente ejecutamos un programa que tenga el servidor, en este caso
+utilizaremos Geany como ejemplo.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/tunelx.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+        </mediaobject>
+
+</section>
+<section>
+<title>Aplicaciones Windows Nativas</title>
+<para>Podemos tener aplicaciones Windows nativas instaladas
+ en ssh-server mediante el emulador WINE. Para instalarlo escribimos
+ en la consola del servidor apt-get install wine. Tras instalarlo nos conectamos
+ a el servidor mediante SSH por tunel X de la siguiente forma: </para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/wine.png" format="PNG" scale="65"/>
+            </imageobject>
+           
+</mediaobject>
+
+
+</section>
+
+</chapter>
+
+	
