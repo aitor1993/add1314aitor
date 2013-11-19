@@ -1,8 +1,10 @@
 <chapter>
-	<title>Acceso remoto SSH (Servidor Xubuntu)</title>
-	<para>Para esta práctica usaremos como servidor un Xubuntu, como clientes, un Windows 7 y un Debian 7</para>
+	<title>Acceso remoto SSH (Servidor Xubuntu y Debian)</title>
 	
-      <section>
+	<para>Para esta práctica usaremos como servidor un Xubuntu, como clientes, un Windows 7 y un Debian 7. Tambíen lo hicimos con un servidor Debian
+	pero no lo hemos documentado puesto que no hay ningun cambio significativo en el proceso de uno y otro.</para>
+	
+     <section>
 	<title>Instalación básica</title>
 	<para>Lo primero que debemos hacer es instalar el Servidor SSH para ello hacemos apt-get install openssh-server en nuestro servidor Xubuntu. </para>
 
@@ -127,12 +129,52 @@ utilizaremos Geany como ejemplo.</para>
 			<imageobject>
 				<imagedata fileref="../img/wine.png" format="PNG" scale="65"/>
             </imageobject>
+    
            
 </mediaobject>
-
-
 </section>
-
+<section>
+<title>Restricciones de uso</title>
+<para>Restricción total: Para crear una restricción de uso del SSH para un usuario debemos de configurar el fichero 
+/etc/ssh/sshd_config y poner la siguiente linea DenyUsers remoteuser2. Con esto conseguiremos que el usuario
+remoteuser2 no pueda acceder a través de SSH a nuestro servidor</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/permisodenegado.png" format="PNG" scale="70"/>
+            </imageobject>
+    
+           
+</mediaobject>
+<para>Restricción temporal: Para crear este tipo de restricción usaremos un script en código Ruby que nos ha facilitado el profesor. Consta de tres partes
+El fichero Ruby, donde se encuentra la tarea a programar, y los archivos free y lock. En el fichero free escribiremos la configuración para que todos los usuarios
+puedan acceder a través de SSH y  en el fichero lock, escribiremos la configuración para restringir el uso a algun usuario.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/ultima.png" format="PNG" scale="65"/>
+            </imageobject>
+    
+           
+</mediaobject>
+<para>Restricción sobre aplicaciones: Lo primero que debemos hacer es crear
+el grupo remoteapps e incluir al usuario remoteuser4 dentro de este.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/final1.png" format="PNG" scale="65"/>
+            </imageobject>
+    
+           
+</mediaobject>
+<para>Tras haber hecho esto le damos los permisos de la siguiente
+forma a la aplicación Geany para que solo el usuario remoteuser4
+pueda usarla .</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/ultima2.png" format="PNG" scale="65"/>
+            </imageobject>
+    
+           
+</mediaobject>
+</section>
 </chapter>
 
 	
