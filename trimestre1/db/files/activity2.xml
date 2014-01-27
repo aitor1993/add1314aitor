@@ -1,0 +1,69 @@
+<chapter>
+	<title>Clientes ligeros con LTSP</title>
+	<para>Para la configuración y la instalación de un Servidor LTSP es necesario la consulta de una documentación.
+		  La documentación original para la instalación y configuración de un Servidor LTSP se encuentra en esta URL = http://www.ltsp.org/</para>
+	
+      <section>
+	<title>Configuración del Servidor LTSP</title>
+	<para>Lo primero que debemos hacer es añadir dos interfaces a nuestro servidor, una en modo adaptador-puente y otra en modo interna (Esta es la que
+	usaremos para el conectarnos con el cliente ligero. Tras haber hecho esto, debemos crear un usuario con nuestro nombre y que posea como contraseña
+	el DNI del Administrador. Tras haber hecho esto, configuramos la interfaz (Modo Interna) en /etc/network/interfaces.</para>
+
+
+<para>Configuración de la Interfaz </para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/interfaces.png" format="PNG" scale="80"/>
+            </imageobject>
+           
+        </mediaobject>
+	<para>Una vez configurada la interfaz y habiendo comprobado que la configuración nueva funciona correctamente procedemos a instalar el paquete "ltsp-server-standalone"
+	el cual nos permitirá tener los paquetes necesarios para el funcionamiento del Servidor LTSP. Tras haber instalado el servicio, configuramos el fichero
+	/etc/default/isc-dhcp-server poniendo como interfaz principal la que vayamos a usar para el Servidor LTSP.
+ </para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/interfazisc.png" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Despues de haber configurado esto, también debemos de configurar otro fichero en el servidor = /etc/ltsp/dhcpd.conf</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/dhcp" format="PNG" scale="50"/>
+            </imageobject>
+           
+        </mediaobject>
+
+<para>Tras haber configurado todos los ficheros de el servidor, solamente queda crear la imagen que el usuario utilizará, para ello usamos el comando
+ltsp-build-client</para>
+
+
+       </section>
+<section>
+<title>Configuración del Cliente LTSP</title>
+<para>Tras haber configurado el servidor, el siguiente paso es la configuración de la máquina o equipo del cliente. Para configurar la máquina del cliente
+debemos crearla sin ningun dispositivo de almacenamiento, ya que, arracará desde la red.</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/sindiscoalguno.png" format="PNG" scale="70"/>
+            </imageobject>
+           
+        </mediaobject>
+
+<para>Para que el cliente pueda arrancar desde la red, es necesario que cargue la orden de arranque desde un disquete configurado para ello. Hay que apreciar
+que el Cliente LTSP no requiere configuración de red ya que el Servidor LTSP le proporciona una dirección ip dentro del rango DHCP que hayamos configurado.
+Para la creación del disquete accedemos a la siguiente páguina = http://rom-o-matic.net/gpxe/gpxe-1.0.1/contrib/rom-o-matic/</para>
+<mediaobject>
+			<imageobject>
+				<imagedata fileref="../img/paginafoto.png" format="PNG" scale="35"/>
+            </imageobject>
+           
+        </mediaobject>
+<para>Finalmente el Cliente Ligero ya estaría listo para arrancar por la red a través del Servidor de Clientes Ligeros.
+	  Y aquí la comprobación de que todo a funcionado correctamente: http://www.youtube.com/watch?v=4DPhYnqZUI4
+</para>
+</section>
+</chapter>
+
+	
